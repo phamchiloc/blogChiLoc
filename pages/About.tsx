@@ -142,7 +142,7 @@ const About: React.FC = () => {
         <div className="sticky top-24">
           <div className="relative aspect-square rounded-[40px] overflow-hidden shadow-2xl">
             <img 
-              src="/avatar.jpg" 
+              src="https://picsum.photos/seed/phamchiloc-avatar/800/800" 
               alt="Phạm Chí Lộc" 
               className="w-full h-full object-cover"
             />

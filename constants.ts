@@ -3,7 +3,7 @@ import { Post, Project, CurriculumItem } from './types';
 
 const AUTHOR_LOC = {
   name: 'Phạm Chí Lộc',
-  avatar: '/avatar.jpg'
+  avatar: 'https://picsum.photos/seed/phamchiloc/100/100'
 };
 
 const LONG_CONTENT_JS_HOISTING = `

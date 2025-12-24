@@ -8,6 +8,7 @@ import Blog from './pages/Blog';
 import PostDetail from './pages/PostDetail';
 import About from './pages/About';
 import Projects from './pages/Projects';
+import Certificates from './pages/Certificates';
 import AIAssistant from './pages/AIAssistant';
 import RoadmapDetail from './pages/RoadmapDetail';
 import { BLOG_POSTS } from './constants';
@@ -31,6 +32,8 @@ const App: React.FC = () => {
         return <Blog key="blog" onPostClick={(id) => { setSelectedPostId(id); setCurrentPage(Page.PostDetail); }} />;
       case Page.Projects:
         return <Projects key="projects" onViewRoadmap={handleViewRoadmap} />;
+      case Page.Certificates:
+        return <Certificates key="certificates" />;
       case Page.About:
         return <About key="about" />;
       case Page.AI:

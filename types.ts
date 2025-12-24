@@ -36,6 +36,7 @@ export enum Page {
   PostDetail = 'post-detail',
   About = 'about',
   Projects = 'projects',
+  Certificates = 'certificates',
   AI = 'ai-assistant',
   RoadmapDetail = 'roadmap-detail'
 }

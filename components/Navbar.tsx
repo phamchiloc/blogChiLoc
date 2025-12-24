@@ -14,6 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPath }) => {
     { label: 'Trang chủ', path: 'home' },
     { label: 'Bài viết', path: 'blog' },
     { label: 'Dự án', path: 'projects' },
+    { label: 'Chứng chỉ', path: 'certificates' },
     { label: 'Giới thiệu', path: 'about' },
     { label: 'Trợ lý AI', path: 'ai-assistant' },
   ];

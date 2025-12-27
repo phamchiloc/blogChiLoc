@@ -10,6 +10,7 @@ interface Certificate {
   image: string;
   description: string;
   skills: string[];
+  pdfUrl?: string; // Optional PDF URL
 }
 
 const certificates: Certificate[] = [
@@ -21,6 +22,7 @@ const certificates: Certificate[] = [
     image: '/blogChiLoc/introduction-to-cybersecurity.png',
     description: 'Chứng chỉ về các khái niệm cơ bản của an ninh mạng, bao gồm bảo mật dữ liệu, mã hóa và các mối đe dọa trên mạng.',
     skills: ['Cybersecurity', 'Network Security', 'Data Protection', 'Threat Analysis']
+    // Không có file PDF
   },
   {
     id: 'js-essentials-1',
@@ -29,7 +31,8 @@ const certificates: Certificate[] = [
     date: '2024',
     image: '/blogChiLoc/JavaScript_Essentials1.png',
     description: 'Nền tảng JavaScript từ cơ bản đến nâng cao, bao gồm cú pháp, kiểu dữ liệu, functions và DOM manipulation.',
-    skills: ['JavaScript', 'ES6+', 'DOM Manipulation', 'Programming Fundamentals']
+    skills: ['JavaScript', 'ES6+', 'DOM Manipulation', 'Programming Fundamentals'],
+    pdfUrl: '/blogChiLoc/jv1.pdf'
   },
   {
     id: 'js-essentials-2',
@@ -38,7 +41,8 @@ const certificates: Certificate[] = [
     date: '2024',
     image: '/blogChiLoc/javascript-essentials-2.png',
     description: 'JavaScript nâng cao với OOP, async programming, promises và modern JavaScript practices.',
-    skills: ['Advanced JavaScript', 'OOP', 'Async/Await', 'ES6+ Features']
+    skills: ['Advanced JavaScript', 'OOP', 'Async/Await', 'ES6+ Features'],
+    pdfUrl: '/blogChiLoc/jv2.pdf'
   },
   {
     id: 'networking-basics',
@@ -47,7 +51,8 @@ const certificates: Certificate[] = [
     date: '2024',
     image: '/blogChiLoc/Netwworking_basics.png',
     description: 'Kiến thức nền tảng về mạng máy tính, bao gồm TCP/IP, routing, switching và network protocols.',
-    skills: ['Networking', 'TCP/IP', 'Network Protocols', 'Routing & Switching']
+    skills: ['Networking', 'TCP/IP', 'Network Protocols', 'Routing & Switching'],
+    pdfUrl: '/blogChiLoc/network.pdf'
   }
 ];
 
@@ -81,7 +86,13 @@ const Certificates: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              onClick={() => setSelectedCert(cert)}
+              onClick={() => {
+                if (cert.pdfUrl) {
+                  window.open(cert.pdfUrl, '_blank');
+                } else {
+                  setSelectedCert(cert);
+                }
+              }}
               className="bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer group border border-slate-200 hover:border-indigo-300 transition-all"
             >
               {/* Certificate Image */}
@@ -93,7 +104,9 @@ const Certificates: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-white font-bold text-sm">Click để xem chi tiết →</span>
+                    <span className="text-white font-bold text-sm">
+                      {cert.pdfUrl ? 'Click để xem PDF →' : 'Click để xem chi tiết →'}
+                    </span>
                   </div>
                 </div>
               </div>
